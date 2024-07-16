@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang=”pt-br” xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>APP Recursos Humanos</title>
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+	<header th:insert="~{'fragments/menu' :: menu}"></header>
+	<br>
+    <div class="container my-5">
+        <th:block th:include="mensagem-validacao"></th:block>
+        <form method="post">
+            <h1>Atualizar vaga</h1>
+            <br>
+            <div class="form-group">
+                <label for="nome"><b>Nome do cargo:</b></label>
+                <input type="text" class="form-control" name="nome" th:attr="value=${vaga.nome}" required>
+                <small class="form-text text-muted"><i>* Utilize nomes e termos mais utilizados no mercado.</i></small>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="data"><b>Data de expiração:</b></label>
+                        <input type="date" class="form-control" name="data" th:attr="value=${vaga.data}" required>
+                        <small class="form-text text-muted"><i>* Data em que a vaga expira.</i></small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="salario"><b>Salário:</b></label>
+                        <input type="number" class="form-control" name="salario" th:attr="value=${vaga.salario}" required>
+                        <small class="form-text text-muted"><i>* Utilize valores considerando vírgula e ponto.</i></small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="descricao"><b>Descrição da vaga:</b></label>
+                <textarea class="form-control" name="descricao" maxlength="254" rows="3" th:text="${vaga.descricao}" required></textarea>
+                <small class="form-text text-muted"><i>* Breve resumo da vaga oferecida.</i></small>
+            </div>
+
+            <button type="submit" class="btn btn-success">Salvar</button>
+        </form>
+    </div>
+
+	<div th:insert="~{'fragments/footer' :: footer}"></div>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
