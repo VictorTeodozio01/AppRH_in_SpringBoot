@@ -4,6 +4,6 @@ Aplicação de Recursos Humanos em SpringBoot com H2 Database desenvolvido para 
 
 Credenciais:
 
-Usuário:admin
+Usuário: admin
 
-senha:123
+senha: 123
