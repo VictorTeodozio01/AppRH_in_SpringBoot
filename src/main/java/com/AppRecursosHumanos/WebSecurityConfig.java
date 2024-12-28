@@ -24,8 +24,8 @@ public class WebSecurityConfig {
                 .permitAll())
             .logout(logout -> logout
                 .permitAll())
-            .csrf(csrf -> csrf
-                .disable());
+            .csrf(csrf -> csrf.disable()) // Desabilita CSRF (somente em desenvolvimento)
+            .headers(headers -> headers.frameOptions().disable()); // Desabilita X-Frame-Options
         
         return http.build();
     }
